@@ -2,21 +2,25 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const passport = require('passport');
+const session = require('express-session');
+
+
+// https://github.com/b-bly/simple-mern-passport
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(
+  session({
+    secret: 'uetqwuesfskldfdfj', //pick a random string to make the hash that is generated secure
+    resave: false, //required
+  saveUninitialized: false //required
+  })
+)
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user.id);
-});
-
-passport.deserializeUser(function(id, cb) {
-  User.findById(id, function(err, user) {
-    cb(err, user);
-  });
-});
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -32,6 +36,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlibdb");
 
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
