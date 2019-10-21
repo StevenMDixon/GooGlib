@@ -1,9 +1,12 @@
-export function PrivateRoute({ children, ...rest }) {
+import React from 'react';
+import {Route, Redirect} from "react-router-dom";
+
+export function PrivateRoute({ children, loggedIn, ...rest }) {
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        fakeAuth.isAuthenticated ? (
+        loggedIn ? (
           children
         ) : (
             <Redirect
