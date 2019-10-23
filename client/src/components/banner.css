@@ -1,0 +1,40 @@
+.banner-wrapper {
+  background-color: black;
+  min-height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-logo{
+  color: white;
+  display: flex;
+  margin-left: 1em;
+}
+
+.banner-links{
+  display: flex;
+  align-items: center;
+}
+
+.banner-links span {
+  margin-left: 1em;
+  display: block;
+}
+
+.user-info {
+  color: white;
+}
+
+.banner-welcome {
+  margin: 0;
+}
+
+.logout-wrapper {
+  margin-right: 1em;
+}
+
+.logout-wrapper a {
+  color: orange;
+}

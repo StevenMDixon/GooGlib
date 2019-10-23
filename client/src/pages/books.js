@@ -1,9 +1,15 @@
 import React, {Component} from "react";
+import {
+  Redirect
+} from "react-router-dom";
 
 class BooksPage extends Component{
 
   render(){
-    return (<p>Hi</p>)
+    return (
+    <div>
+      <p>Books</p>
+    </div>)
   }
 }
 

@@ -1,9 +1,16 @@
 import React, {Component} from "react";
+import {
+  Redirect
+} from "react-router-dom";
 
 class LibraryPage extends Component{
 
   render(){
-    return (<p>Library</p>)
+    return (
+    <div>
+      <p>Library</p>
+    </div>
+   )
   }
 }
 
