@@ -4,9 +4,6 @@ const routes = require("./routes");
 const passport = require('./passport');
 const session = require('express-session');
 
-
-// https://github.com/b-bly/simple-mern-passport
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -33,6 +30,8 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
+// mongoose.connection.dropDatabase();
 
 // Start the API server
 app.listen(PORT, function () {

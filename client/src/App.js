@@ -23,7 +23,6 @@ class App extends Component {
   getUser = () => {
     axios.get("/user").then(response => {
       if (response.data.user) {
-        console.log("Get User: There is a user saved in the server session: ");
         this.setState({
           loggedIn: true,
           username: response.data.user.username,
@@ -31,18 +30,20 @@ class App extends Component {
         }, 
 );
       } else {
-        console.log("Get user: no user");
-        this.setState({
-          loggedIn: false,
-          username: null
-        });
+        //console.log("Get user: no user");
+        if(this.state.loggedIn){
+          this.setState({
+            loggedIn: false,
+            username: null
+          });
+        }
       }
     });
   };
 
   logOut = () => {
     axios.post("/user/logout").then(response => {
-      console.log(response);
+      //console.log(response);
       this.setState({
         loggedIn: false,
         username: null,
@@ -52,7 +53,7 @@ class App extends Component {
   }
 
   updateUser = newState => {
-    this.setState(newState, () => console.log(this.state));
+    this.setState(newState);
   };
 
   render() {

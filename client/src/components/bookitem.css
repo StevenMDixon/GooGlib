@@ -1,0 +1,17 @@
+.book-item-wrapper{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  margin: 1em;
+}
+
+.book-item-right{
+  text-align: left;
+}
+
+.book-item-picture-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: .2em;
+}

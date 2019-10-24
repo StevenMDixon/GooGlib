@@ -18,7 +18,12 @@ module.exports = {
   create: function(req, res) {
     db.Book
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        return db.User.findOneAndUpdate({username: req.user.username}, { $push: {books: dbModel._id}}, {new: true});
+      })
+      .then(dbUser => {
+        res.json(dbUser);
+      })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
